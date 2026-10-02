@@ -28,3 +28,8 @@ mongo-express-service.yaml # Service manifest. NodePort service to expose mongo-
 
 mongo-express-configmap.yaml # Configmap referenced by mongo-express deployment. Contains database URL env variable.
 ```
+
+### IMPLEMENTATION:
+
+1. Use BASE64 to encode a username and password and set them inside of the secret manifest. `echo -n <username> | base64 && echo -n <password> | base64`
+2. Run `kubectl apply -f .` This will create the objects in the required order for everything to function properly.
